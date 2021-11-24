@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 print(find_packages(), file=sys.stderr)
 
 setup(
-    name='UrlRobotsChecker',
+    name='url-robots-checker',
     version='0.1.0',
     packages=find_packages(),
     python_requires='>= 3.6',
