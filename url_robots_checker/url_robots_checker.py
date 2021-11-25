@@ -12,7 +12,12 @@ class UrlRobotsChecker:
         self._url = url
         self._user_agent = user_agent
         self._request_timeout_seconds = request_timeout_seconds
-        self.robots_path = UrlRobotsPathFinder(**kwargs).find(self._url)
+
+        url_robots_path_finder = UrlRobotsPathFinder(
+            user_agent=user_agent,
+            request_timeout_seconds=request_timeout_seconds
+        )
+        self.robots_path = url_robots_path_finder.find(self._url)
         self._robots = self._fetch_robots()
 
     def can_fetch(self, url):

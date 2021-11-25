@@ -16,12 +16,12 @@ class UrlRobotsPathFinder:
             for scheme in ['https', 'http']:
                 processed_url = self._add_scheme_to_url(url, scheme=scheme)
                 robots_url = reppy.Robots.robots_url(processed_url)
-                if self._is_path_present(robots_url):
+                if self._is_robots_present(robots_url):
                     return robots_url
             return None
 
         robots_url = reppy.Robots.robots_url(url)
-        if self._is_path_present(robots_url):
+        if self._is_robots_present(robots_url):
             return robots_url
         return None
 
@@ -35,7 +35,7 @@ class UrlRobotsPathFinder:
         )
         return urlunsplit(split_result)
 
-    def _is_path_present(self, path: str):
+    def _is_robots_present(self, path: str):
         try:
             result = requests_head(
                 path,

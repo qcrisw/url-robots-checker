@@ -1,0 +1,7 @@
+unittest-xml-reporting==2.2.0
+pytest==6.2.3
+pylint==2.8.2
+tox==3.2.0
+
+requests==2.24.0
+reppy==0.4.14
