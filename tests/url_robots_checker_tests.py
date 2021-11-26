@@ -54,7 +54,7 @@ class TestUrlRobotsChecker(TestCase):
     @patch('url_robots_checker.url_robots_checker.RobotFileParser')
     @patch('url_robots_checker.url_robots_checker.reppy')
     @patch('url_robots_checker.url_robots_checker.UrlRobotsPathFinder')
-    def test_can_fetch_rfp_allowed(self, mock_finder, mock_rpy, mock_rfp):
+    def test_can_fetch_none_allowed(self, mock_finder, mock_rpy, mock_rfp):
         mock_rfp.return_value.can_fetch.return_value = False
         urc = UrlRobotsChecker(url='barfoo.com', user_agent='47', request_timeout_seconds=74)
         urc.robots_path = 'http://barfoo.com/robots.txt'
