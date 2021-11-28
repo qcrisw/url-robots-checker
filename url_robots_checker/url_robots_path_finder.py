@@ -1,7 +1,7 @@
 
 from urllib.parse import SplitResult, urlparse, urlsplit, urlunsplit
 import reppy.robots as reppy
-from requests import head as requests_head
+from requests import get as requests_get
 
 
 class UrlRobotsPathFinder:
@@ -37,7 +37,7 @@ class UrlRobotsPathFinder:
 
     def _is_robots_present(self, path: str):
         try:
-            result = requests_head(
+            result = requests_get(
                 path,
                 headers={'User-Agent': self._user_agent},
                 timeout=self._request_timeout_seconds,
